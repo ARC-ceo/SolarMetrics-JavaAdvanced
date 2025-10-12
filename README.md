@@ -5,7 +5,7 @@
 
 ## Sobre o time
 
-- **Carlos Clementino**: Responsável por construir a API em Java Spring Boot.  
+- **Carlos Clementino**: Responsável pelo desenvolvimento da API em Java Spring Boot e .NET, infraestrutura e práticas de DevOps, e pela integração com dispositivos IoT.  
 - **Arthur Algate**: Responsável pelo banco de dados e Compliance QA.  
 - **Eder Silva**: Responsável pela criação do APP mobile.
 
@@ -32,15 +32,6 @@ git clone https://github.com/SEU_USUARIO/SolarMetrics-API.git
 ```bash
 cd SolarMetrics-API
 ```
-3. Configure o banco de dados no `application-prod.properties` (Oracle):
-```properties
-spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
-spring.datasource.username=SEU_USUARIO
-spring.datasource.password=SUA_SENHA
-spring.jpa.hibernate.ddl-auto=update
-```
-
-O profile **local** já está configurado para H2 e não precisa de configuração adicional.
 
 4. Execute a aplicação com o profile desejado:
 
@@ -58,7 +49,7 @@ mvn spring-boot:run -Dspring-boot.run.profiles=prod
 
 ### Testando a API
 A documentação dos endpoints está disponível via **Swagger UI**:  
-`http://localhost:8080/swagger-ui.html`
+`http://localhost:8080/swagger-ui/index.html`
 
 ## Diagramas
 
@@ -70,6 +61,10 @@ A documentação dos endpoints está disponível via **Swagger UI**:
 
 ## Apresentação
 Assista ao vídeo explicando a proposta tecnológica, o público-alvo e os problemas que a aplicação resolve:  
+[Apresentação SolarMetrics]([https://www.youtube.com/seu_link_aqui](https://youtu.be/Fcza8JBvsyw))
+
+## Video demonstrativo
+Assista ao vídeo para a demonstração e teste da API na prática:  
 [Apresentação SolarMetrics](https://www.youtube.com/seu_link_aqui)
 
 ## Endpoints da API
@@ -80,7 +75,7 @@ A API foi documentada com **Swagger / OpenAPI**, oferecendo exemplos completos d
 
 | Método | Endpoint                  | Descrição                                   |
 |--------|---------------------------|--------------------------------------------|
-| GET    | /api/sensores             | Lista todos os sensores cadastrados        |
+| GET    | /cliente             | Lista com todos clientes cadastrados        |
 | GET    | /api/sensores/{id}        | Retorna informações de um sensor específico |
 | POST   | /api/sensores             | Cadastra um novo sensor                     |
 | PUT    | /api/sensores/{id}        | Atualiza dados de um sensor                 |

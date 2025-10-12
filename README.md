@@ -1,4 +1,4 @@
-
+![Logo](banner.jpg)
 # SolarMetrics - API em Spring Boot
 
 **SolarMetrics** é uma API desenvolvida para monitoramento e análise de energia solar, fornecendo dados em tempo real sobre sensores, usuários e ocupação de sistemas. A aplicação permite integrar sensores IoT, gerar relatórios e fornecer dados para aplicativos móveis ou dashboards web.

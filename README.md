@@ -5,8 +5,8 @@
 
 ## Sobre o time
 
-- **Carlos Clementino**: Responsável pelo desenvolvimento da API em Java Spring Boot e .NET, infraestrutura e práticas de DevOps, e pela integração com dispositivos IoT.  
 - **Arthur Algate**: Responsável pelo banco de dados e Compliance QA.  
+- **Carlos Clementino**: Responsável pelo desenvolvimento da API em Java Spring Boot e .NET, infraestrutura e práticas de DevOps, e pela integração com dispositivos IoT.  
 - **Eder Silva**: Responsável pela criação do APP mobile.
 
 ## Como rodar a aplicação
@@ -26,14 +26,10 @@ A aplicação possui dois **profiles** de configuração de banco de dados:
 
 1. Clone o repositório:  
 ```bash
-git clone https://github.com/SEU_USUARIO/SolarMetrics-API.git
-```
-2. Acesse a pasta do projeto:  
-```bash
-cd SolarMetrics-API
+git clone https://github.com/ARC-ceo/SolarMetrics-JavaAdvanced.git
 ```
 
-4. Execute a aplicação com o profile desejado:
+2. Execute a aplicação com o profile desejado:
 
 **Para local (H2):**
 ```bash
@@ -45,7 +41,7 @@ mvn spring-boot:run -Dspring-boot.run.profiles=local
 mvn spring-boot:run -Dspring-boot.run.profiles=prod
 ```
 
-5. A API estará disponível em: `http://localhost:8080`
+3. A API estará disponível em: `http://localhost:8080`
 
 ### Testando a API
 A documentação dos endpoints está disponível via **Swagger UI**:  
@@ -61,7 +57,7 @@ A documentação dos endpoints está disponível via **Swagger UI**:
 
 ## Apresentação
 Assista ao vídeo explicando a proposta tecnológica, o público-alvo e os problemas que a aplicação resolve:  
-[Apresentação SolarMetrics]([https://www.youtube.com/seu_link_aqui](https://youtu.be/Fcza8JBvsyw))
+[Apresentação SolarMetrics](https://youtu.be/Fcza8JBvsyw)
 
 ## Video demonstrativo
 Assista ao vídeo para a demonstração e teste da API na prática:  
@@ -75,17 +71,12 @@ A API foi documentada com **Swagger / OpenAPI**, oferecendo exemplos completos d
 
 | Método | Endpoint                  | Descrição                                   |
 |--------|---------------------------|--------------------------------------------|
-| GET    | /cliente             | Lista com todos clientes cadastrados        |
-| GET    | /api/sensores/{id}        | Retorna informações de um sensor específico |
-| POST   | /api/sensores             | Cadastra um novo sensor                     |
-| PUT    | /api/sensores/{id}        | Atualiza dados de um sensor                 |
-| DELETE | /api/sensores/{id}        | Remove um sensor                             |
-| GET    | /api/usuarios             | Lista todos os usuários do sistema          |
-| POST   | /api/usuarios             | Cadastra um novo usuário                     |
-| PUT    | /api/usuarios/{id}        | Atualiza informações de um usuário          |
-| DELETE | /api/usuarios/{id}        | Remove um usuário                            |
-| GET    | /api/ocupacao/{vagaoId}  | Consulta a ocupação de um vagão específico |
-| POST   | /api/relatorios           | Gera relatório de energia / ocupação        |
+| GET    | /cliente             | Listar todos clientes cadastrados        |
+| PUT    | /cliente        | Atualizar cadastro do cliente |
+| POST   | /cliente            | Criar cadastro do cliente                     |
+| GET    | /cliente/{id}        | Buscar cadastro do cliente                 |
+| DELETE | /cliente/{id}        | Deletar cadastro do cliente                             |
+| PATCH    | /cliente/{id}              | Atualiza o campo desejado do cliente          |
 
 > Para todos os endpoints, exemplos detalhados de request e response estão disponíveis no **Swagger UI**.
 
@@ -100,4 +91,4 @@ A API foi documentada com **Swagger / OpenAPI**, oferecendo exemplos completos d
 
 ---
 
-**SolarMetrics** — Monitoramento inteligente de energia solar em tempo real.
+**SolarMetrics** — Sua energia. Seu controle  ☀️

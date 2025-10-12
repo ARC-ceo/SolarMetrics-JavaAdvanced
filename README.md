@@ -50,10 +50,10 @@ A documentação dos endpoints está disponível via **Swagger UI**:
 ## Diagramas
 
 ### Diagrama de Classes
-![Diagrama de classes](.diagram_classes.jpg)
+![Diagrama de classes](diagram_classes.jpg)
 
 ### Modelo Físico
-![Arquitetura](.MER.png)
+![Arquitetura](MER.png)
 
 ## Apresentação
 Assista ao vídeo explicando a proposta tecnológica, o público-alvo e os problemas que a aplicação resolve:  

@@ -20,8 +20,10 @@ public class Sistema {
     private String id;
     private String nomeInstalacao;
     private LocalDate dataInstalacao;
-    private int potenciaTotal;
-    private String status;
+    private Integer potenciaTotal;
+
+    @Enumerated(EnumType.STRING)
+    private StatusSistema status;
 
     @ManyToOne
     private Cliente cliente;

@@ -1,6 +1,7 @@
 package com.oracle.solarmetrics.gateways;
 
 
+import com.oracle.solarmetrics.exceptions.SistemaJaExistenteException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
@@ -45,5 +46,12 @@ public class ControllerAdvice {
         Map<String, String> response = new HashMap<>();
         response.put("mensagem", ex.getMessage());
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(SistemaJaExistenteException.class)
+    public ResponseEntity<Map<String, String>> handleSistemaJaExistente(SistemaJaExistenteException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("mensagem", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
     }
 }

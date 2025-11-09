@@ -28,4 +28,7 @@ public class Cliente {
             cascade = CascadeType.ALL
     )
     private List<Sistema> sistemas;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Usuario usuario;
 }

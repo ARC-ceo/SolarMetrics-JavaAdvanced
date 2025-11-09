@@ -1,9 +1,12 @@
 package com.oracle.solarmetrics.services;
 
 import com.oracle.solarmetrics.domains.Cliente;
+import com.oracle.solarmetrics.domains.Usuario;
 import com.oracle.solarmetrics.gateways.ClienteRepository;
+import com.oracle.solarmetrics.gateways.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,12 +17,23 @@ import java.util.Optional;
 public class ClienteService implements ClienteServiceInterface {
 
     private final ClienteRepository clienteRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public Cliente create(Cliente cliente) {
         if (clienteRepository.findByEmail(cliente.getEmail()).isPresent()) {
             throw new IllegalArgumentException("O e-mail já está em uso.");
         }
-        return clienteRepository.save(cliente);
+        Cliente clienteCodificado = Cliente.builder()
+                .email(cliente.getEmail())
+                .nome(cliente.getNome())
+                .telefone(cliente.getTelefone())
+                .tipoUser(cliente.getTipoUser())
+                .usuario(Usuario.builder()
+                        .username(cliente.getUsuario().getUsername())
+                        .password(passwordEncoder.encode(cliente.getUsuario().getPassword()))
+                        .build())
+                .build();
+        return clienteRepository.save(clienteCodificado);
     }
 
     public Cliente update(Cliente cliente) {

@@ -6,6 +6,7 @@ import com.oracle.solarmetrics.gateways.dtos.ClienteRequestUpdateDto;
 import com.oracle.solarmetrics.gateways.dtos.response.ClienteResponseDto;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 

@@ -17,7 +17,7 @@
 | Criação de Procedures e Queries | Arthur Algate | 21/10/2025 | 07/11/2025 | Concluido |
 | Garantia de Compliance e QA | Arthur Algate | 21/11/2025 | 30/11/2025 | Pendente |
 | Desenvolvimento da API Java Spring Boot | Carlos Clementino | 20/09/2025 | 25/11/2025 | Andamento |
-| Desenvolvimento da API .NET | Carlos Clementino | 10/11/2025 | 20/09/2025 | Andamento |
+| Desenvolvimento da API .NET | Carlos Clementino | 23/09/2025 | 20/09/2025 | Andamento |
 | Configuração de Infraestrutura e DevOps | Carlos Clementino | 20/10/2025 | 22/10/2025 | Concluido |
 | Integração com Dispositivos IoT | Carlos Clementino | 23/11/2025 | 05/12/2025 | Pendente |
 | Desenvolvimento do APP Mobile | Eder Silva | 26/09/2025 | 30/11/2025 | Andamento |

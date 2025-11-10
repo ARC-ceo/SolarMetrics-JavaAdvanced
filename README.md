@@ -9,6 +9,21 @@
 - **Carlos Clementino RM:561187**: Responsável pelo desenvolvimento da API em Java Spring Boot e .NET, infraestrutura e práticas de DevOps, e pela integração com dispositivos IoT.  
 - **Eder Silva RM:559647**: Responsável pela criação do APP mobile.
 
+# Cronograma de Desenvolvimento - SolarMetrics
+
+| Atividade | Responsável | Data de Início | Data de Término | Status |
+|-----------|------------|----------------|----------------|--------|
+| Modelagem do Banco de Dados | Arthur Algate | 05/10/2025 | 08/10/2025 | Concluido |
+| Criação de Procedures e Queries | Arthur Algate | 21/10/2025 | 07/11/2025 | Concluido |
+| Garantia de Compliance e QA | Arthur Algate | 21/11/2025 | 30/11/2025 | Pendente |
+| Desenvolvimento da API Java Spring Boot | Carlos Clementino | 20/09/2025 | 25/11/2025 | Andamento |
+| Desenvolvimento da API .NET | Carlos Clementino | 10/11/2025 | 20/09/2025 | Andamento |
+| Configuração de Infraestrutura e DevOps | Carlos Clementino | 20/10/2025 | 22/10/2025 | Concluido |
+| Integração com Dispositivos IoT | Carlos Clementino | 23/11/2025 | 05/12/2025 | Pendente |
+| Desenvolvimento do APP Mobile | Eder Silva | 26/09/2025 | 30/11/2025 | Andamento |
+| Testes de Integração (API + Mobile + Banco) | Todos | 01/12/2025 | 05/12/2025 | Pendente |
+| Ajustes Finais e Deploy | Todos | 06/12/2025 | 10/12/2025 | Pendente |
+
 ## Como rodar a aplicação
 
 ### Pré-requisitos

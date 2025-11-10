@@ -60,8 +60,8 @@ Assista ao vídeo explicando a proposta tecnológica, o público-alvo e os probl
 [Apresentação SolarMetrics](https://youtu.be/Fcza8JBvsyw)
 
 ## Video demonstrativo
-Assista ao vídeo para a demonstração e teste da API na prática:  
-[Demonstração da API](https://youtu.be/bsGvr91GXyc)
+Assista ao vídeo para a demonstração e teste da API na prática atualizada:  
+[Demonstração da API](https://youtu.be/ZlvBVwZGxe4)
 
 ## Endpoints da API
 

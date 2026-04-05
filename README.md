@@ -5,8 +5,8 @@
 
 ## Sobre o time
 
-- **Arthur Algate RM:560109**: Responsável pelo banco de dados e Compliance QA.  
-- **Carlos Clementino RM:561187**: Responsável pelo desenvolvimento da API em Java Spring Boot e .NET, infraestrutura e práticas de DevOps, e pela integração com dispositivos IoT.  
+- **Carlos Clementino RM:561187**: Responsável pelo desenvolvimento da API em Java Spring Boot, e pela integração com dispositivos IoT. 
+- **Édipo  Carvalho RM:567164**: Responsável pelo banco de dados, Compliance QA, .NET e DevOps.   
 - **Eder Silva RM:559647**: Responsável pela criação do APP mobile.
 
 ## Como rodar a aplicação

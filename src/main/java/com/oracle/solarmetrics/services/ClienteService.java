@@ -2,8 +2,8 @@ package com.oracle.solarmetrics.services;
 
 import com.oracle.solarmetrics.domains.Cliente;
 import com.oracle.solarmetrics.domains.Usuario;
-import com.oracle.solarmetrics.gateways.ClienteRepository;
-import com.oracle.solarmetrics.gateways.UsuarioRepository;
+import com.oracle.solarmetrics.gateways.repositories.ClienteRepository;
+import com.oracle.solarmetrics.gateways.repositories.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,6 +17,7 @@ import java.util.Optional;
 public class ClienteService implements ClienteServiceInterface {
 
     private final ClienteRepository clienteRepository;
+    private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
 
     public Cliente create(Cliente cliente) {
@@ -31,6 +32,7 @@ public class ClienteService implements ClienteServiceInterface {
                 .usuario(Usuario.builder()
                         .username(cliente.getUsuario().getUsername())
                         .password(passwordEncoder.encode(cliente.getUsuario().getPassword()))
+                        .roles(List.of("ROLE_USUARIO"))
                         .build())
                 .build();
         return clienteRepository.save(clienteCodificado);
@@ -53,8 +55,9 @@ public class ClienteService implements ClienteServiceInterface {
     }
 
     public void delete(String id) {
-        getId(id);
+        Cliente cliente = getId(id);
         clienteRepository.deleteById(id);
+        usuarioRepository.deleteById(cliente.getEmail());
     }
 
     public Cliente patch(String id, Cliente cliente) {

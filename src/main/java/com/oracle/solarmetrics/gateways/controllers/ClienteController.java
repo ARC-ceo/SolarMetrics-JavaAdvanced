@@ -1,16 +1,15 @@
-package com.oracle.solarmetrics.gateways;
+package com.oracle.solarmetrics.gateways.controllers;
 
 import com.oracle.solarmetrics.domains.Cliente;
-import com.oracle.solarmetrics.gateways.dtos.ClienteRequestDto;
-import com.oracle.solarmetrics.gateways.dtos.ClienteRequestPatchDto;
-import com.oracle.solarmetrics.gateways.dtos.ClienteRequestUpdateDto;
-import com.oracle.solarmetrics.gateways.dtos.response.ClienteResponseDto;
+import com.oracle.solarmetrics.gateways.dtos.clienteDto.ClienteRequestDto;
+import com.oracle.solarmetrics.gateways.dtos.clienteDto.ClienteRequestPatchDto;
+import com.oracle.solarmetrics.gateways.dtos.clienteDto.ClienteRequestUpdateDto;
+import com.oracle.solarmetrics.gateways.dtos.clienteDto.ClienteResponseDto;
 import com.oracle.solarmetrics.services.ClienteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

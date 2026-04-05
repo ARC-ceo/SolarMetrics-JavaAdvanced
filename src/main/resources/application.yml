@@ -4,4 +4,4 @@ spring:
   application:
     name: solarmetrics
   profiles:
-    active: ${PROFILE:local}
+    active: ${PROFILE:autonomus}

@@ -1,4 +1,4 @@
-package com.oracle.solarmetrics.gateways;
+package com.oracle.solarmetrics.gateways.repositories;
 
 import com.oracle.solarmetrics.domains.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;

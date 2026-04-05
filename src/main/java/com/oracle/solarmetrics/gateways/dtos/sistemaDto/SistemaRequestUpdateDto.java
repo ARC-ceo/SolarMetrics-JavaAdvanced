@@ -1,15 +1,21 @@
-package com.oracle.solarmetrics.gateways.dtos;
+package com.oracle.solarmetrics.gateways.dtos.sistemaDto;
 
 import com.oracle.solarmetrics.domains.Cliente;
 import com.oracle.solarmetrics.domains.Sistema;
 import com.oracle.solarmetrics.domains.StatusSistema;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
-public class SistemaRequestDto {
+public class SistemaRequestUpdateDto {
+
+    @NotBlank
+    private String id;
 
     @NotBlank
     private String nomeInstalacao;
@@ -30,6 +36,7 @@ public class SistemaRequestDto {
 
     public Sistema toSistema(){
         return Sistema.builder()
+                .id(id)
                 .nomeInstalacao(nomeInstalacao)
                 .dataInstalacao(dataInstalacao)
                 .potenciaTotal(potenciaTotal)
@@ -39,5 +46,4 @@ public class SistemaRequestDto {
                         .build())
                 .build();
     }
-
 }

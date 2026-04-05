@@ -1,7 +1,8 @@
 package com.oracle.solarmetrics.gateways;
 
 import com.oracle.solarmetrics.domains.Cliente;
-import com.oracle.solarmetrics.gateways.dtos.response.ClienteResponseDto;
+import com.oracle.solarmetrics.gateways.controllers.ClienteController;
+import com.oracle.solarmetrics.gateways.dtos.clienteDto.ClienteResponseDto;
 import com.oracle.solarmetrics.services.ClienteService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

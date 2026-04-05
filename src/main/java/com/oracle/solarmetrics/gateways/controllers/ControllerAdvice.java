@@ -1,4 +1,4 @@
-package com.oracle.solarmetrics.gateways;
+package com.oracle.solarmetrics.gateways.controllers;
 
 
 import com.oracle.solarmetrics.exceptions.SistemaJaExistenteException;

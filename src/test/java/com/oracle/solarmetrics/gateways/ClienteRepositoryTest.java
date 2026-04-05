@@ -1,6 +1,7 @@
 package com.oracle.solarmetrics.gateways;
 
 import com.oracle.solarmetrics.domains.Cliente;
+import com.oracle.solarmetrics.gateways.repositories.ClienteRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

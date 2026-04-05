@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@(description=(retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=gf7532fc26c597c_bh1bb19a0xop0l3r_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+    username: TESTE
+    password: "@Tar77429012"
+    driver-class-name: oracle.jdbc.OracleDriver
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.OracleDialect

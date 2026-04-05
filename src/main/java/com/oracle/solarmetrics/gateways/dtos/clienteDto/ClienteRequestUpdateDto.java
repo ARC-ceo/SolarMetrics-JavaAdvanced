@@ -1,4 +1,4 @@
-package com.oracle.solarmetrics.gateways.dtos;
+package com.oracle.solarmetrics.gateways.dtos.clienteDto;
 
 import com.oracle.solarmetrics.domains.Cliente;
 import jakarta.validation.constraints.Email;

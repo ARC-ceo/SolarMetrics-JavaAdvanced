@@ -1,9 +1,9 @@
-package com.oracle.solarmetrics.gateways;
+package com.oracle.solarmetrics.gateways.controllers;
 
-import com.oracle.solarmetrics.gateways.dtos.SistemaRequestDto;
-import com.oracle.solarmetrics.gateways.dtos.SistemaRequestPatchDto;
-import com.oracle.solarmetrics.gateways.dtos.SistemaRequestUpdateDto;
-import com.oracle.solarmetrics.gateways.dtos.response.SistemaResponseDto;
+import com.oracle.solarmetrics.gateways.dtos.sistemaDto.SistemaRequestDto;
+import com.oracle.solarmetrics.gateways.dtos.sistemaDto.SistemaRequestPatchDto;
+import com.oracle.solarmetrics.gateways.dtos.sistemaDto.SistemaRequestUpdateDto;
+import com.oracle.solarmetrics.gateways.dtos.sistemaDto.SistemaResponseDto;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

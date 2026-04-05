@@ -1,4 +1,4 @@
-package com.oracle.solarmetrics.gateways.dtos.response;
+package com.oracle.solarmetrics.gateways.dtos.sistemaDto;
 import com.oracle.solarmetrics.domains.Sistema;
 import com.oracle.solarmetrics.domains.StatusSistema;
 
@@ -9,14 +9,16 @@ public record SistemaResponseDto (
         String nomeInstalacao,
         LocalDate dataInstalacao,
         Integer potenciaTotal,
-        StatusSistema status
+        StatusSistema status,
+        String id
 ){
     public static SistemaResponseDto fromSistema(Sistema sistema){
         return new SistemaResponseDto (
                 sistema.getNomeInstalacao(),
                 sistema.getDataInstalacao(),
                 sistema.getPotenciaTotal(),
-                sistema.getStatus()
+                sistema.getStatus(),
+                sistema.getId()
         );
     }
 }

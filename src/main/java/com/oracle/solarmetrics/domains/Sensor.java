@@ -15,7 +15,6 @@ import java.util.List;
 
 public class Sensor {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String tipo;
     private String status;
@@ -30,4 +29,7 @@ public class Sensor {
             cascade = CascadeType.ALL
     )
     private List<Monitoramento> monitoramento;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private SensorLogin sensorLogin;
 }

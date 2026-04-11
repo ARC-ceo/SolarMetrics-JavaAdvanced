@@ -4,7 +4,7 @@ spring:
   application:
     name: solarmetrics
   profiles:
-    active: ${PROFILE:local}
+    active: ${PROFILE:prod}
   rabbitmq:
     virtual-host: email
     password: admin

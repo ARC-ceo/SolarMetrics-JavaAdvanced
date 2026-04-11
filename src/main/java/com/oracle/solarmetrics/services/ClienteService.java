@@ -2,10 +2,12 @@ package com.oracle.solarmetrics.services;
 
 import com.oracle.solarmetrics.domains.Cliente;
 import com.oracle.solarmetrics.domains.Usuario;
+import com.oracle.solarmetrics.gateways.dtos.emailDto.EmailQueueDto;
 import com.oracle.solarmetrics.gateways.repositories.ClienteRepository;
 import com.oracle.solarmetrics.gateways.repositories.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,8 @@ public class ClienteService implements ClienteServiceInterface {
     private final ClienteRepository clienteRepository;
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
+    private final RabbitTemplate rabbitTemplate;
+    private final EmailService emailService;
 
     public Cliente create(Cliente cliente) {
         if (clienteRepository.findByEmail(cliente.getEmail()).isPresent()) {
@@ -35,7 +39,14 @@ public class ClienteService implements ClienteServiceInterface {
                         .roles(List.of("ROLE_USUARIO"))
                         .build())
                 .build();
-        return clienteRepository.save(clienteCodificado);
+
+        cliente = clienteRepository.save(clienteCodificado);
+        rabbitTemplate.convertAndSend(
+                "email-welcome.ex",
+                "email-welcome.rk",
+                EmailQueueDto.fromUsuario(cliente)
+        );
+        return cliente;
     }
 
     public Cliente update(Cliente cliente) {

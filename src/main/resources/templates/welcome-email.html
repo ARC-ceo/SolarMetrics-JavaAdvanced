@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bem-vindo ao SolarMetrics</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+</head>
+<body style="margin: 0; padding: 0; background-color: #10131d; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  
+  <!-- Wrapper Table -->
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #10131d;">
+    <tr>
+      <td align="center" style="padding: 40px 20px;">
+        
+        <!-- Email Container -->
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="max-width: 600px; width: 100%; background-color: #22293e; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);">
+          
+          <!-- Header com Logo -->
+          <tr>
+            <td align="center" style="background: linear-gradient(135deg, #343f5f 0%, #22293e 100%); padding: 40px 40px 30px 40px;">
+              
+              <!-- Espaço para Logo -->
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td align="center" style="padding-bottom: 20px;">
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                    <h1 style="margin: 0; font-size: 28px; font-weight: 700; color: #f0ba3e; letter-spacing: 1px;">
+                      SolarMetrics
+                    </h1>
+                    <p style="margin: 8px 0 0 0; font-size: 14px; color: #f4cb6d; letter-spacing: 2px; text-transform: uppercase;">
+                      Monitoramento Solar em Tempo Real
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              
+            </td>
+          </tr>
+          
+          <!-- Faixa Decorativa -->
+          <tr>
+            <td style="height: 4px; background: linear-gradient(90deg, #e9a812 0%, #f0ba3e 50%, #f4cb6d 100%);"></td>
+          </tr>
+          
+          <!-- Conteúdo Principal -->
+          <tr>
+            <td style="padding: 40px; background-color: #22293e;">
+              
+              <!-- Saudação -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td>
+                    <h2 style="margin: 0 0 8px 0; font-size: 24px; font-weight: 600; color: #ffffff;">
+                      Olá, <span style="color: #f0ba3e;" th:text="${nome}"></span>! 👋
+                    </h2>
+                    <p style="margin: 0 0 24px 0; font-size: 16px; color: #a8b0c5; line-height: 1.6;">
+                      Seja muito bem-vindo(a) ao <strong style="color: #f4cb6d;">SolarMetrics</strong>!
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- Mensagem de Boas-vindas -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #343f5f; border-radius: 12px; margin-bottom: 24px;">
+                <tr>
+                  <td style="padding: 24px;">
+                    <p style="margin: 0 0 16px 0; font-size: 15px; color: #d1d5e0; line-height: 1.7;">
+                      Estamos muito felizes em ter você conosco! A partir de agora, você terá acesso ao monitoramento de energia solar de forma <strong style="color: #f0ba3e;">descomplicada</strong> e em <strong style="color: #f0ba3e;">tempo real</strong>.
+                    </p>
+                    <p style="margin: 0; font-size: 15px; color: #d1d5e0; line-height: 1.7;">
+                      Com o SolarMetrics, você poderá acompanhar toda a geração de energia do seu sistema fotovoltaico, identificar oportunidades de economia e ter total controle sobre sua produção solar.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- Recursos Principais -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 32px;">
+                <tr>
+                  <td>
+                    <h3 style="margin: 0 0 20px 0; font-size: 18px; font-weight: 600; color: #f4cb6d;">
+                      O que você pode fazer:
+                    </h3>
+                  </td>
+                </tr>
+                
+                <!-- Feature 1 -->
+                <tr>
+                  <td style="padding-bottom: 16px;">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td width="48" valign="top">
+                          <div style="width: 40px; height: 40px; background-color: #343f5f; border-radius: 10px; text-align: center; line-height: 40px;">
+                            <span style="font-size: 20px;">⚡</span>
+                          </div>
+                        </td>
+                        <td style="padding-left: 12px;" valign="middle">
+                          <p style="margin: 0; font-size: 15px; color: #ffffff; font-weight: 500;">Monitoramento em Tempo Real</p>
+                          <p style="margin: 4px 0 0 0; font-size: 13px; color: #a8b0c5;">Acompanhe a geração de energia instantaneamente</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                
+                <!-- Feature 2 -->
+                <tr>
+                  <td style="padding-bottom: 16px;">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td width="48" valign="top">
+                          <div style="width: 40px; height: 40px; background-color: #343f5f; border-radius: 10px; text-align: center; line-height: 40px;">
+                            <span style="font-size: 20px;">📊</span>
+                          </div>
+                        </td>
+                        <td style="padding-left: 12px;" valign="middle">
+                          <p style="margin: 0; font-size: 15px; color: #ffffff; font-weight: 500;">Relatórios Detalhados</p>
+                          <p style="margin: 4px 0 0 0; font-size: 13px; color: #a8b0c5;">Visualize gráficos e históricos de produção</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                
+                <!-- Feature 3 -->
+                <tr>
+                  <td style="padding-bottom: 16px;">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td width="48" valign="top">
+                          <div style="width: 40px; height: 40px; background-color: #343f5f; border-radius: 10px; text-align: center; line-height: 40px;">
+                            <span style="font-size: 20px;">🔔</span>
+                          </div>
+                        </td>
+                        <td style="padding-left: 12px;" valign="middle">
+                          <p style="margin: 0; font-size: 15px; color: #ffffff; font-weight: 500;">Alertas Inteligentes</p>
+                          <p style="margin: 4px 0 0 0; font-size: 13px; color: #a8b0c5;">Receba notificações sobre o desempenho do sistema</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                
+                <!-- Feature 4 -->
+                <tr>
+                  <td>
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td width="48" valign="top">
+                          <div style="width: 40px; height: 40px; background-color: #343f5f; border-radius: 10px; text-align: center; line-height: 40px;">
+                            <span style="font-size: 20px;">💰</span>
+                          </div>
+                        </td>
+                        <td style="padding-left: 12px;" valign="middle">
+                          <p style="margin: 0; font-size: 15px; color: #ffffff; font-weight: 500;">Economia Calculada</p>
+                          <p style="margin: 4px 0 0 0; font-size: 13px; color: #a8b0c5;">Veja quanto você está economizando em reais</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- CTA Button -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td align="center" style="padding: 8px 0 24px 0;">
+                    <a href="https://solar-metrics.grouparc.com.br" target="_blank" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #f0ba3e 0%, #e9a812 100%); color: #10131d; font-size: 16px; font-weight: 700; text-decoration: none; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 16px rgba(240, 186, 62, 0.3);">
+                      Acessar Meu Painel
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- Mensagem de Suporte -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top: 1px solid #343f5f; padding-top: 24px;">
+                <tr>
+                  <td>
+                    <p style="margin: 0; font-size: 14px; color: #a8b0c5; line-height: 1.6; text-align: center;">
+                      Precisa de ajuda? Nossa equipe de suporte está sempre pronta para atender você.
+                      <br>
+                      Entre em contato pelo email <a href="mailto:suporte@solarmetrics.com" style="color: #f0ba3e; text-decoration: none;">suporte@solarmetrics.com</a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              
+            </td>
+          </tr>
+          
+          <!-- Footer -->
+          <tr>
+            <td style="background-color: #10131d; padding: 32px 40px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                
+                <!-- Social Links -->
+                <tr>
+                  <td align="center" style="padding-bottom: 20px;">
+                    <a href="#" style="display: inline-block; margin: 0 8px; width: 36px; height: 36px; background-color: #343f5f; border-radius: 8px; text-align: center; line-height: 36px; text-decoration: none;">
+                      <img src="https://img.icons8.com/ios-filled/20/f0ba3e/facebook-new.png" alt="Facebook" width="20" height="20" style="vertical-align: middle;">
+                    </a>
+                    <a href="#" style="display: inline-block; margin: 0 8px; width: 36px; height: 36px; background-color: #343f5f; border-radius: 8px; text-align: center; line-height: 36px; text-decoration: none;">
+                      <img src="https://img.icons8.com/ios-filled/20/f0ba3e/instagram-new.png" alt="Instagram" width="20" height="20" style="vertical-align: middle;">
+                    </a>
+                    <a href="#" style="display: inline-block; margin: 0 8px; width: 36px; height: 36px; background-color: #343f5f; border-radius: 8px; text-align: center; line-height: 36px; text-decoration: none;">
+                      <img src="https://img.icons8.com/ios-filled/20/f0ba3e/linkedin.png" alt="LinkedIn" width="20" height="20" style="vertical-align: middle;">
+                    </a>
+                  </td>
+                </tr>
+                
+                <!-- Copyright -->
+                <tr>
+                  <td align="center">
+                    <p style="margin: 0 0 8px 0; font-size: 13px; color: #6b7280;">
+                      © 2026 SolarMetrics. Todos os direitos reservados.
+                    </p>
+                    <p style="margin: 0; font-size: 12px; color: #4b5563;">
+                      Você está recebendo este email porque se cadastrou na plataforma SolarMetrics.
+                    </p>
+                  </td>
+                </tr>
+                
+                <!-- Unsubscribe -->
+                <tr>
+                  <td align="center" style="padding-top: 16px;">
+                    <a href="{{LINK_DESCADASTRAR}}" style="font-size: 12px; color: #6b7280; text-decoration: underline;">
+                      Cancelar inscrição
+                    </a>
+                  </td>
+                </tr>
+                
+              </table>
+            </td>
+          </tr>
+          
+        </table>
+        
+      </td>
+    </tr>
+  </table>
+  
+</body>
+</html>

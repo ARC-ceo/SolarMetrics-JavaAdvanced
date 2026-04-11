@@ -4,4 +4,11 @@ spring:
   application:
     name: solarmetrics
   profiles:
-    active: ${PROFILE:autonomus}
+    active: ${PROFILE:local}
+  rabbitmq:
+    virtual-host: email
+    password: admin
+    username: admin
+    port: 5672
+resend:
+  api-key: re_b2iLCwmQ_ioMQnKpmy3fGb7NHxi1zNd1V

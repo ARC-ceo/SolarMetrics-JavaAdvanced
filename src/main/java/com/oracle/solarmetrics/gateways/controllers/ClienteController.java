@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,18 +29,21 @@ public class ClienteController implements ClienteControllerInterface {
     }
 
     @PutMapping
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<ClienteResponseDto> update(@RequestBody @Valid ClienteRequestUpdateDto clienteRequestUpdateDto) {
         Cliente cliente = clienteService.update(clienteRequestUpdateDto.toCliente());
         return ResponseEntity.ok().body(ClienteResponseDto.fromCliente(cliente));
     }
 
     @GetMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<ClienteResponseDto> getId(@PathVariable("id") String id) {
         Cliente cliente = clienteService.getId(id);
         return ResponseEntity.ok().body(ClienteResponseDto.fromCliente(cliente));
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<List<ClienteResponseDto>> getAll() {
         List<Cliente> clientes = clienteService.getAll();
         if (clientes.isEmpty()) {
@@ -54,12 +58,14 @@ public class ClienteController implements ClienteControllerInterface {
     }
 
     @PatchMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<ClienteResponseDto> patch(@PathVariable("id") String id, @RequestBody @Valid ClienteRequestPatchDto clienteRequestPatchDto) {
         Cliente cliente = clienteService.patch(id, clienteRequestPatchDto.toCliente());
         return ResponseEntity.ok().body(ClienteResponseDto.fromCliente(cliente));
     }
 
     @DeleteMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<Void> delete(@PathVariable("id") String id) {
         clienteService.delete(id);
         return ResponseEntity.noContent().build();

@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class SensorController {
     private final SensorService sensorService;
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<SensorResponseDto> create(@RequestBody @Valid SensorRequestDto sensorRequestDto) {
         Sensor sensor = sensorService.create(sensorRequestDto.toSensor());
         return ResponseEntity.status(HttpStatus.CREATED).body(SensorResponseDto.fromSensor(sensor));
@@ -33,24 +35,28 @@ public class SensorController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<SensorResponseDto> update(@RequestBody @Valid SensorRequestDto sensorRequestDto) {
         Sensor sensor = sensorService.update(sensorRequestDto.toSensor());
         return ResponseEntity.ok().body(SensorResponseDto.fromSensor(sensor));
     }
 
     @GetMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<SensorResponseDto> getId(@PathVariable("id") String id) {
         Sensor sensor = sensorService.getId(id);
         return ResponseEntity.ok().body(SensorResponseDto.fromSensor(sensor));
     }
 
     @GetMapping(value = "/sistema/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<SensorResponseDto> getSensoresSistema(@PathVariable("id") String id) {
         Sensor sensor = sensorService.getSensoresSistema(id);
         return ResponseEntity.ok(SensorResponseDto.fromSensor(sensor));
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<List<SensorResponseDto>> getAll() {
         List<Sensor> sensors = sensorService.getAll();
         if (sensors.isEmpty()) {
@@ -65,12 +71,14 @@ public class SensorController {
     }
 
     @PatchMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<SensorResponseDto> patch(@PathVariable("id") String id, @RequestBody @Valid SensorRequestPatchDto sensorRequestPatchDto) {
         Sensor sensor = sensorService.patch(id, sensorRequestPatchDto.toSensor());
         return ResponseEntity.ok().body(SensorResponseDto.fromSensor(sensor));
     }
 
     @DeleteMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<Void> delete(@PathVariable("id") String id) {
         sensorService.delete(id);
         return ResponseEntity.noContent().build();

@@ -32,26 +32,44 @@ public class JwtService {
     }
 
     public String generateToken(UserDetails user) {
-        Cliente usuarioInfo = clienteRepository.findByEmail(user.getUsername())
-                .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
 
-        List<String> sistemaIds = sistemaRepository.findIdsByClienteId(usuarioInfo.getId());
-        List<String> topics = sistemaIds.stream()
-                .map(id -> "devices/" + id + "/realtime")
+        List<String> roles = user.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
                 .toList();
 
-        Map<String, Object> acl = new HashMap<>();
-        acl.put("sub", topics);
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("sub", user.getUsername());
+        claims.put("roles", roles);
+
+        if (roles.contains("ROLE_USUARIO")) {
+
+            Cliente usuarioInfo = clienteRepository.findByEmail(user.getUsername())
+                    .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+
+            List<String> sistemaIds = sistemaRepository.findIdsByClienteId(usuarioInfo.getId());
+            List<String> topics = sistemaIds.stream()
+                    .map(id -> "devices/" + id + "/realtime")
+                    .toList();
+
+            Map<String, Object> acl = new HashMap<>();
+            acl.put("sub", topics);
+
+            claims.put("nome", usuarioInfo.getNome());
+            claims.put("id", usuarioInfo.getId());
+            claims.put("acl", acl);
+        }
+
+        else if (roles.contains("ROLE_ADMIN")) {
+
+            Map<String, Object> acl = new HashMap<>();
+            acl.put("sub", List.of("#"));
+            claims.put("nome", "ADMIN");
+            claims.put("acl", acl);
+        }
 
         return Jwts.builder()
                 .setSubject(user.getUsername())
-                .claim("nome", usuarioInfo.getNome())
-                .claim("id", usuarioInfo.getId())
-                .claim("username", "EmqxJwtUser")
-                .claim("acl", acl)
-                .claim("roles", user.getAuthorities().stream()
-                        .map(GrantedAuthority::getAuthority)
-                        .toList())
+                .addClaims(claims)
                 .setExpiration(new Date(System.currentTimeMillis() + 3600_000))
                 .signWith(privateKey, SignatureAlgorithm.RS256)
                 .compact();

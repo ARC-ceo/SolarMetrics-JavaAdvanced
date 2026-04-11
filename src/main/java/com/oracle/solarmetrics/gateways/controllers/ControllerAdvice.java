@@ -6,6 +6,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -53,5 +54,12 @@ public class ControllerAdvice {
         Map<String, String> response = new HashMap<>();
         response.put("mensagem", ex.getMessage());
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<Map<String, String>> handleAccessDeniedException(AccessDeniedException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("mensagem", "Acesso negado: você não tem permissão para acessar este recurso.");
+        return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
     }
 }

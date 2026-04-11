@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,24 +22,28 @@ public class SistemaController implements SistemaControllerInterface {
     private final SistemaService sistemaService;
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<SistemaResponseDto> create(@RequestBody @Valid SistemaRequestDto sistemaRequestDto) {
         Sistema sistema = sistemaService.create(sistemaRequestDto.toSistema());
         return ResponseEntity.status(HttpStatus.CREATED).body(SistemaResponseDto.fromSistema(sistema));
     }
 
     @PutMapping()
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<SistemaResponseDto> update(@RequestBody @Valid SistemaRequestUpdateDto sistemaRequestUpdateDto) {
         Sistema sistema = sistemaService.update(sistemaRequestUpdateDto.toSistema());
         return ResponseEntity.ok().body(SistemaResponseDto.fromSistema(sistema));
     }
 
     @GetMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<SistemaResponseDto> getId(@PathVariable("id") String id) {
         Sistema sistema = sistemaService.getId(id);
         return ResponseEntity.ok().body(SistemaResponseDto.fromSistema(sistema));
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<List<SistemaResponseDto>> getAll() {
         List<Sistema> sistemas = sistemaService.getAll();
         if (sistemas.isEmpty()) {
@@ -53,6 +58,7 @@ public class SistemaController implements SistemaControllerInterface {
     }
 
     @GetMapping(value = "/cliente/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<List<SistemaResponseDto>> getSistemasCliente(@PathVariable("id") String id) {
         List<Sistema> sistemas = sistemaService.getSistemasCliente(id);
         if (sistemas.isEmpty()) {
@@ -67,12 +73,14 @@ public class SistemaController implements SistemaControllerInterface {
     }
 
     @PatchMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<SistemaResponseDto> patch(@PathVariable("id") String id, @RequestBody @Valid SistemaRequestPatchDto sistemaRequestPatchDto) {
         Sistema sistema = sistemaService.patch(id, sistemaRequestPatchDto.toSistema());
         return ResponseEntity.ok().body(SistemaResponseDto.fromSistema(sistema));
     }
 
     @DeleteMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
     public ResponseEntity<Void> delete(@PathVariable("id") String id) {
         sistemaService.delete(id);
         return ResponseEntity.noContent().build();

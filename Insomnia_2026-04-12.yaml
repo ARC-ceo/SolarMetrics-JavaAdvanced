@@ -1,0 +1,657 @@
+type: collection.insomnia.rest/5.0
+name: Challenge SM Java - Local
+meta:
+  id: wrk_f924046570c34150b546124f41aa157a
+  created: 1774714703927
+  modified: 1774714703927
+collection:
+  - name: Cliente
+    meta:
+      id: fld_c1c466d60c264a4daa369b2359238405
+      created: 1774714703932
+      modified: 1774714703932
+      sortKey: -1759000022685
+    children:
+      - url: http://localhost:8080/cliente
+        name: Create
+        meta:
+          id: req_753c5f89a1384b6a97c98226f592935c
+          created: 1774714703934
+          modified: 1776027157370
+          isPrivate: false
+          sortKey: -1759000026855
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "carlossantiagoclementino36@gmail.com",
+            	"nome": "Carlos Clementino",
+            	"telefone": "11972935394",
+            	"tipoUser": "Residencial",
+            	"senha": "senha123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/cliente
+        name: Update
+        meta:
+          id: req_9f8da233d2cc4685bd015c47f74a223a
+          created: 1774714703935
+          modified: 1775920267900
+          isPrivate: false
+          sortKey: -1759000026955
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": "361899f9-f743-4ab5-82b3-d6dbf13540aa",
+            	"email": "carlos21@gmail.com",
+            	"nome": "Carlos Clementino",
+            	"telefone": "11972935394",
+            	"tipoUser": "Residencial"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_474c8413f046481ba30f0536598129e3
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_d1a5eaaba0664b38bfb4a0730abed8f2
+          - id: pair_9ffc733f1a41482d836fc835868ac428
+            name: Authorization
+            value: Bearer {% response 'body', 'req_e30e93e44f9340bb9b3b51aee50ae699',
+              'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 60 %}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/cliente/172b0d1a-05e8-4f91-aade-9de19629c54f
+        name: Get
+        meta:
+          id: req_254c694ea83b42ca97e4bcd00ddd551d
+          created: 1774714703937
+          modified: 1774714703937
+          isPrivate: false
+          sortKey: -1759000027055
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/cliente/d70a9dd0-b4e4-4ae6-b354-2aa645b5bc55
+        name: Delete
+        meta:
+          id: req_7b4e8e9d5ede49ddbcb8068f7f62dbbb
+          created: 1774714703938
+          modified: 1776026412461
+          isPrivate: false
+          sortKey: -1759000027155
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_3c0da492461a45a8acda3c1318c1efa9
+          - id: pair_75ad36b678c34d588e9f893224b073e3
+            name: Authorization
+            value: Bearer {% response 'body', 'req_e30e93e44f9340bb9b3b51aee50ae699',
+              'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 60 %}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/cliente/172b0d1a-05e8-4f91-aade-9de19629c54f
+        name: Patch
+        meta:
+          id: req_bdc8b75a334f466bbe71031f6ae09325
+          created: 1774714703939
+          modified: 1774714703939
+          isPrivate: false
+          sortKey: -1759000027255
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Carlos Santiago"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/cliente
+        name: Get All
+        meta:
+          id: req_7a1c70bed4bc403da7f91629eb2c84fa
+          created: 1774714703940
+          modified: 1776027240721
+          isPrivate: false
+          sortKey: -1759000027355
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_33df632cda804139a8662b41c1b69541
+          - id: pair_752e1acb345944f0ab422ff0f78ca21c
+            name: Authorization
+            value: Bearer {% response 'body', 'req_e30e93e44f9340bb9b3b51aee50ae699',
+              'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 60 %}
+            disabled: false
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: true
+          username: arthur@gmail.com
+          password: senha123
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Sistema
+    meta:
+      id: fld_6bbfab30b66d482baa2dbb8e652e870a
+      created: 1774714703941
+      modified: 1774714703941
+      sortKey: -1760507930928
+    children:
+      - url: http://localhost:8080/sistema/cd094e23-455e-4b00-abdd-9255f4bb47bd
+        name: Patch
+        meta:
+          id: req_8e9de1846bb145eda635bf2bdb2c016f
+          created: 1774714703941
+          modified: 1774714703941
+          isPrivate: false
+          sortKey: -1762726112088
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "status": "INATIVO"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: arthur@gmail.com
+          password: senha123
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/sistema
+        name: Get all
+        meta:
+          id: req_1173f00caa34488293dfe7334033e215
+          created: 1774714703942
+          modified: 1774714868857
+          isPrivate: false
+          sortKey: -1762726202434
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_25fab6d71a2c43b9be1b759eb32c8728
+          - id: pair_e3229597e7234dc4a1f75a6bf404aa0b
+            name: Authorization
+            value: Bearer {% response 'body', 'req_e30e93e44f9340bb9b3b51aee50ae699',
+              'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 60 %}
+            disabled: false
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: true
+          username: arthur@gmail.com
+          password: senha123
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "http://localhost:8080/sistema/cd094e23-455e-4b00-abdd-9255f4bb47bd\t"
+        name: Get ID Sistema
+        meta:
+          id: req_dda45958d6de451ea289e47150204220
+          created: 1774714703944
+          modified: 1774714703944
+          isPrivate: false
+          sortKey: -1762726243945
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: arthur@gmail.com
+          password: senha123
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://20.226.23.226:8080/sistema/cliente/d771cf0b-0223-4e46-a6a5-0ca3a79ac6ef
+        name: Get ID Cliente
+        meta:
+          id: req_d9b0535a2f9044459a6814ca03e06683
+          created: 1774714703945
+          modified: 1774714703945
+          isPrivate: false
+          sortKey: -1762726268999
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_59f72ff149f04fcb88b51374b622d626
+          - id: pair_5c3264faf730411fb474b4da7f264a33
+            name: Authorization
+            value: Bearer {% response 'body', 'req_2ee94fa1b6d34bd395e85223d0113b2a',
+              'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 60 %}
+            disabled: false
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: true
+          username: arthur@gmail.com
+          password: senha123
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/sistema
+        name: Update
+        meta:
+          id: req_6631aa71ac3747129f10ed7231763f78
+          created: 1774714703946
+          modified: 1774714703946
+          isPrivate: false
+          sortKey: -1762726293941
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": "2ea4ad8a-f972-43b1-ab98-a1f4f17902f2",
+              "nomeInstalacao": "string",
+              "dataInstalacao": "2025-11-09",
+              "potenciaTotal": 1,
+              "status": "INATIVO",
+              "clienteId": "13003b02-cbc7-4805-b3d9-4d8eb600a19d"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: arthur@gmail.com
+          password: senha123
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/sistema
+        name: Create
+        meta:
+          id: req_72749946e8a2440a9424a38aec307296
+          created: 1774714703947
+          modified: 1774793796797
+          isPrivate: false
+          sortKey: -1762726323042
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nomeInstalacao": "Casa de Ribeirão Preto",
+              "dataInstalacao": "2026-03-21",
+              "potenciaTotal": 3000,
+              "status": "ATIVO",
+              "clienteId": "6f51f311-a09f-49e2-ad01-1dfcdcecdbd9"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_a2e8d28de8d34fb4aa8d12e44e2f8c65
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_3efc4cd27fe14e1992cd222dac0d0da2
+          - id: pair_d5ceb73025b64f098ab53e0aff147389
+            name: Authorization
+            value: Bearer {% response 'body', 'req_e30e93e44f9340bb9b3b51aee50ae699',
+              'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 60 %}
+            disabled: false
+          - id: pair_9caa5d3ba3994917ac8f8613c3803258
+            disabled: false
+        authentication:
+          type: none
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/sistema/2ea4ad8a-f972-43b1-ab98-a1f4f17902f2
+        name: Delete
+        meta:
+          id: req_37c36447405f4811aa8c25a03da1fbb1
+          created: 1774714703948
+          modified: 1774714703948
+          isPrivate: false
+          sortKey: -1762726334744
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: basic
+          useISO88591: false
+          disabled: false
+          username: arthur@gmail.com
+          password: senha123
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Sensor
+    meta:
+      id: fld_d0616d0d7c9e482f8b5d113dff77c0ac
+      created: 1774714703950
+      modified: 1774714703950
+      sortKey: -1774126706544
+    children:
+      - url: http://localhost:8080/sensor
+        name: Create
+        meta:
+          id: req_a687bae3b8a2435c8f515bc04dea58d1
+          created: 1774714703950
+          modified: 1775268074169
+          isPrivate: false
+          sortKey: -1774126718440
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"tipo": "ESP32",
+            	"localizacao": "Algum lugar",
+            	"sistemaId": "d00098a6-b368-462e-8dd1-0db3ece20522",
+            	"macAddress": "C5:03:0A:31:02:3D",
+            	"status": "ATIVO"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_d8a547e22b564f0283595bcb6386bdca
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_463fbf14c6e647dfba5682b6289a4758
+          - id: pair_9cd7de063d5e454f8b69442a860eb9af
+            name: Authorization
+            value: Bearer {% response 'body', 'req_e30e93e44f9340bb9b3b51aee50ae699',
+              'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 60 %}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://20.226.23.226:8080/sensor/auth
+        name: Auth
+        meta:
+          id: req_743bce052e9846d3bb68d43b5c016ca0
+          created: 1774714703952
+          modified: 1774714703952
+          isPrivate: false
+          sortKey: -1774128748876
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"password": "e744dbcddb4c4f18faf44d15bac29d29",
+            	"username": "00:AA:11:BB:22:CC"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_37b542be6136426bbfcbc7986940680b
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_1dc7a05d51244b9b81e797dbf95388f1
+          - id: pair_53e7302b582644f3a11bca500989dbba
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/sensor/sistema/d00098a6-b368-462e-8dd1-0db3ece20522
+        name: SensorSistemaId
+        meta:
+          id: req_753958d435724f2b81b3a98020c1041e
+          created: 1774714703953
+          modified: 1775920839050
+          isPrivate: false
+          sortKey: -1774201148994
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_74091ce29ace4539ab64a4131c7802b9
+          - id: pair_92e70e512f754771b906d78d75694dad
+            name: Authorization
+            value: Bearer {% response 'body', 'req_e30e93e44f9340bb9b3b51aee50ae699',
+              'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 60 %}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: PainelSolar
+    meta:
+      id: fld_cc5207a5cc5245d5b8cb9794c7487fc6
+      created: 1774714703955
+      modified: 1774714703955
+      sortKey: -1774203112898
+    children:
+      - url: http://localhost:8080/painelsolar
+        name: Create
+        meta:
+          id: req_8f95ba3544e44f4692fa9c9c0f4d15c9
+          created: 1774714703956
+          modified: 1776025420408
+          isPrivate: false
+          sortKey: -1774203119214
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "modelo": "Tiger Neo 72HL4-V",
+              "fabricante": "Jinko Solar",
+              "potenciaMaxima": 600,
+              "dataFabricacao": "2024-11-20",
+              "eficiencia": 22.2,
+              "sistemaId": "fb2969b2-7492-4cb6-8bbb-b1a608a3f3e3"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_7384ea425f514875a1100dab34bffc65
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_ac63665c9fd9491aa9b602cbde305143
+          - id: pair_d5396b61e9b742f085aa7ed016287ed6
+            name: Authorization
+            value: Bearer {% response 'body', 'req_2ee94fa1b6d34bd395e85223d0113b2a',
+              'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 60 %}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/painelsolar/sistema/4299ef19-affa-4d76-a67d-723a0e198410
+        name: Get sistema
+        meta:
+          id: req_8223f47660ed4b77b268c0016fc88d7d
+          created: 1774714703958
+          modified: 1775951391531
+          isPrivate: false
+          sortKey: -1774203324965
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_9db45272d7564dae87f92cd833cc178d
+          - id: pair_d6a15b8ea5884f449edacf0f9f64408b
+            name: Authorization
+            value: Bearer {% response 'body', 'req_e30e93e44f9340bb9b3b51aee50ae699',
+              'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'when-expired', 60 %}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - url: http://localhost:8080/auth
+    name: Auth
+    meta:
+      id: req_e30e93e44f9340bb9b3b51aee50ae699
+      created: 1774714703959
+      modified: 1776027273327
+      isPrivate: false
+      sortKey: -1774203112998
+    method: POST
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: admin
+      password: admin
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_e1c05e6d88d74c2298612fb7b0b26c71
+    created: 1774714703930
+    modified: 1776025573068
+  cookies:
+    - key: JSESSIONID
+      value: 8209D1A9BE43DD8B2C9D06058FD7BBEC
+      domain: localhost
+      path: /
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-10-29T11:33:39.848Z
+      lastAccessed: 2026-04-12T20:26:13.068Z
+      id: 6d1145e0-be12-40f6-b681-982fe07e0ddb
+environments:
+  name: Base Environment
+  meta:
+    id: env_693f480a1bce44b193ab387f2e463aa1
+    created: 1774714703928
+    modified: 1774714703928
+    isPrivate: false

@@ -16,7 +16,7 @@
 - Maven 3.8+  
 - IDE recomendada: IntelliJ IDEA ou VSCode
 
-## 🐳 Subindo o RabbitMQ com Docker Compose
+## Subindo o RabbitMQ com Docker Compose
 
 O projeto possui um arquivo `docker-compose.yml` configurado para subir o **RabbitMQ**, responsável pela comunicação assíncrona entre os serviços da aplicação.
 
@@ -40,8 +40,8 @@ docker ps
 4. Acesse o painel de gerenciamento do RabbitMQ:
 http://localhost:15672
 
-- **Usuário padrão:** guest  
-- **Senha padrão:** guest  
+- **Usuário padrão:** admin  
+- **Senha padrão:** admin  
 
 5. Para parar o serviço:
 ```bash

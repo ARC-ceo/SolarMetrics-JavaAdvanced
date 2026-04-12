@@ -14,7 +14,39 @@
 ### Pré-requisitos
 - Java 17 ou superior  
 - Maven 3.8+  
-- IDE recomendada: IntelliJ IDEA ou VSCode  
+- IDE recomendada: IntelliJ IDEA ou VSCode
+
+## 🐳 Subindo o RabbitMQ com Docker Compose
+
+O projeto possui um arquivo `docker-compose.yml` configurado para subir o **RabbitMQ**, responsável pela comunicação assíncrona entre os serviços da aplicação.
+
+### Passo a passo
+
+1. Acesse a raiz do projeto:
+```bash
+cd SolarMetrics-JavaAdvanced
+```
+
+2. Suba o container do RabbitMQ:
+```bash
+docker-compose up -d
+```
+
+3. Verifique se o container está rodando:
+```bash
+docker ps
+```
+
+4. Acesse o painel de gerenciamento do RabbitMQ:
+http://localhost:15672
+
+- **Usuário padrão:** guest  
+- **Senha padrão:** guest  
+
+5. Para parar o serviço:
+```bash
+docker-compose down
+```  
 
 ### Perfis de execução
 A aplicação possui dois **profiles** de configuração de banco de dados:

@@ -65,7 +65,7 @@ Assista ao vídeo para a demonstração e teste da API na prática:
 
 ## Endpoints da API
 
-A API foi documentada com **Swagger / OpenAPI**, oferecendo exemplos completos de requisição e resposta.  
+A API foi documentada com **Swagger / OpenAPI**, oferecendo exemplos completos de requisição e resposta e possui uma Colection do Insomnia no repositório.  
 
 ### Endpoints principais
 

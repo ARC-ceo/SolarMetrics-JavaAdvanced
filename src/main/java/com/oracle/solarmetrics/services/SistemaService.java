@@ -1,6 +1,7 @@
 package com.oracle.solarmetrics.services;
 
 import com.oracle.solarmetrics.domains.Cliente;
+import com.oracle.solarmetrics.domains.Endereco;
 import com.oracle.solarmetrics.domains.Sistema;
 import com.oracle.solarmetrics.exceptions.SistemaJaExistenteException;
 import com.oracle.solarmetrics.gateways.repositories.ClienteRepository;
@@ -18,6 +19,7 @@ public class SistemaService implements SistemaServiceInterface {
 
     private final SistemaRepository sistemaRepository;
     private final ClienteRepository clienteRepository;
+    private final EnderecoService enderecoService;
 
     public Sistema create(Sistema sistema) {
         getCliente(sistema.getCliente().getId());
@@ -25,7 +27,24 @@ public class SistemaService implements SistemaServiceInterface {
         if (resultSistema.isPresent()) {
             throw new SistemaJaExistenteException("O usuário já possui uma instalação com este nome.");
         }
-        return sistemaRepository.save(sistema);
+
+        Endereco enderecoSalvo =
+                enderecoService.cadastrarEndereco(
+                        sistema.getEndereco()
+                );
+
+        Sistema novoSistema = Sistema.builder()
+                .nomeInstalacao(sistema.getNomeInstalacao())
+                .dataInstalacao(sistema.getDataInstalacao())
+                .potenciaTotal(sistema.getPotenciaTotal())
+                .status(sistema.getStatus())
+                .cliente(Cliente.builder()
+                        .id(sistema.getCliente().getId())
+                        .build())
+                .endereco(enderecoSalvo)
+                .build();
+
+        return sistemaRepository.save(novoSistema);
     }
 
     public Sistema update(Sistema sistema) {
@@ -64,7 +83,20 @@ public class SistemaService implements SistemaServiceInterface {
     }
 
     public Sistema patch(String id, Sistema sistema) {
+
         Sistema sistemaExistente = getId(id);
+        Endereco enderecoAtualizado =
+                sistemaExistente.getEndereco();
+
+        if (sistema.getEndereco() != null) {
+
+            enderecoAtualizado =
+                    enderecoService
+                            .cadastrarEndereco(
+                                    sistema.getEndereco()
+                            );
+        }
+
         Sistema sistemaAtualizado = Sistema.builder()
                 .id(sistemaExistente.getId())
                 .nomeInstalacao(sistema.getNomeInstalacao() != null
@@ -83,6 +115,7 @@ public class SistemaService implements SistemaServiceInterface {
                         ? sistema.getStatus()
                         : sistemaExistente.getStatus())
                 .cliente(Cliente.builder().id(sistemaExistente.getCliente().getId()).build())
+                .endereco(enderecoAtualizado)
                 .build();
         if (sistemaRepository.findByNomeInstalacaoAndCliente_Id(sistemaAtualizado.getNomeInstalacao(), sistemaAtualizado.getCliente().getId()).filter(s -> !s.getId().equals(sistemaAtualizado.getId())).isPresent()) {
             throw new SistemaJaExistenteException("O usuário já possui uma instalação com este nome.");

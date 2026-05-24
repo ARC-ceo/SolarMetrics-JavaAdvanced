@@ -36,11 +36,11 @@ public class SolarmetricsApplication {
                                          PasswordEncoder passwordEncoder) {
         return args -> {
 
-            String username = "admin";
+            String username = "admin@solarmetrics.com";
 
             if (usuarioRepository.findById(username).isEmpty()) {
                 Usuario admin = Usuario.builder()
-                        .username("admin")
+                        .username("admin@solarmetrics.com")
                         .password(passwordEncoder.encode("admin"))
                         .roles(List.of("ROLE_ADMIN"))
                         .build();

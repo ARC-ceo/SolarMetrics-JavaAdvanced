@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-@FeignClient(name = "resend", url = "https://api.resend.com")
+@FeignClient(
+        name = "resend",
+        url = "https://api.resend.com"
+)
 public interface EmailClient {
 
     @PostMapping("/emails")

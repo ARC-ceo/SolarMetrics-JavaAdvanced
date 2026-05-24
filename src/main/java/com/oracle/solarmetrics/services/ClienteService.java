@@ -22,7 +22,6 @@ public class ClienteService implements ClienteServiceInterface {
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
     private final RabbitTemplate rabbitTemplate;
-    private final EmailService emailService;
 
     public Cliente create(Cliente cliente) {
         if (clienteRepository.findByEmail(cliente.getEmail()).isPresent()) {
@@ -40,13 +39,13 @@ public class ClienteService implements ClienteServiceInterface {
                         .build())
                 .build();
 
-        cliente = clienteRepository.save(clienteCodificado);
+        clienteRepository.save(clienteCodificado);
         rabbitTemplate.convertAndSend(
                 "email-welcome.ex",
                 "email-welcome.rk",
                 EmailQueueDto.fromUsuario(cliente)
         );
-        return cliente;
+        return clienteCodificado;
     }
 
     public Cliente update(Cliente cliente) {

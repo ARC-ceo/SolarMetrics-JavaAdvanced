@@ -3,6 +3,8 @@ package com.oracle.solarmetrics.gateways.dtos.sistemaDto;
 import com.oracle.solarmetrics.domains.Cliente;
 import com.oracle.solarmetrics.domains.Sistema;
 import com.oracle.solarmetrics.domains.StatusSistema;
+import com.oracle.solarmetrics.gateways.dtos.EnderecoDto.EnderecoRequestDto;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
@@ -28,16 +30,25 @@ public class SistemaRequestDto {
     @NotBlank(message = "O id do cliente é obrigatório")
     private String clienteId;
 
-    public Sistema toSistema(){
+    @Valid
+    @NotNull(message = "O endereço é obrigatório")
+    private EnderecoRequestDto endereco;
+
+    public Sistema toSistema() {
+
         return Sistema.builder()
                 .nomeInstalacao(nomeInstalacao)
                 .dataInstalacao(dataInstalacao)
                 .potenciaTotal(potenciaTotal)
                 .status(status)
-                .cliente(Cliente.builder()
-                        .id(clienteId)
-                        .build())
+                .cliente(
+                        Cliente.builder()
+                                .id(clienteId)
+                                .build()
+                )
+                .endereco(
+                        endereco.toEndereco()
+                )
                 .build();
     }
-
 }

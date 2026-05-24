@@ -2,6 +2,7 @@ package com.oracle.solarmetrics.gateways.controllers;
 
 
 import com.oracle.solarmetrics.exceptions.SistemaJaExistenteException;
+import com.oracle.solarmetrics.exceptions.ViaCepServiceException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
@@ -61,5 +62,25 @@ public class ControllerAdvice {
         Map<String, String> response = new HashMap<>();
         response.put("mensagem", "Acesso negado: você não tem permissão para acessar este recurso.");
         return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(ViaCepServiceException.class)
+    public ResponseEntity<Map<String, String>>
+    handleViaCepServiceException(
+            ViaCepServiceException ex
+    ) {
+
+        Map<String, String> response =
+                new HashMap<>();
+
+        response.put(
+                "mensagem",
+                ex.getMessage()
+        );
+
+        return new ResponseEntity<>(
+                response,
+                HttpStatus.SERVICE_UNAVAILABLE
+        );
     }
 }

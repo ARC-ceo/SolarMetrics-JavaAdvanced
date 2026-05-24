@@ -1,9 +1,6 @@
 package com.oracle.solarmetrics.gateways.controllers;
 import com.oracle.solarmetrics.domains.Sistema;
-import com.oracle.solarmetrics.gateways.dtos.sistemaDto.SistemaRequestDto;
-import com.oracle.solarmetrics.gateways.dtos.sistemaDto.SistemaRequestPatchDto;
-import com.oracle.solarmetrics.gateways.dtos.sistemaDto.SistemaRequestUpdateDto;
-import com.oracle.solarmetrics.gateways.dtos.sistemaDto.SistemaResponseDto;
+import com.oracle.solarmetrics.gateways.dtos.sistemaDto.*;
 import com.oracle.solarmetrics.services.SistemaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -37,9 +34,9 @@ public class SistemaController implements SistemaControllerInterface {
 
     @GetMapping(value = "/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
-    public ResponseEntity<SistemaResponseDto> getId(@PathVariable("id") String id) {
+    public ResponseEntity<SistemaResponseIdDto> getId(@PathVariable("id") String id) {
         Sistema sistema = sistemaService.getId(id);
-        return ResponseEntity.ok().body(SistemaResponseDto.fromSistema(sistema));
+        return ResponseEntity.ok().body(SistemaResponseIdDto.fromSistema(sistema));
     }
 
     @GetMapping
@@ -59,7 +56,7 @@ public class SistemaController implements SistemaControllerInterface {
 
     @GetMapping(value = "/cliente/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','USUARIO')")
-    public ResponseEntity<List<SistemaResponseDto>> getSistemasCliente(@PathVariable("id") String id) {
+    public ResponseEntity<List<SistemaResponseIdDto>> getSistemasCliente(@PathVariable("id") String id) {
         List<Sistema> sistemas = sistemaService.getSistemasCliente(id);
         if (sistemas.isEmpty()) {
             return ResponseEntity
@@ -67,7 +64,7 @@ public class SistemaController implements SistemaControllerInterface {
                     .build();
         } else {
             return ResponseEntity.ok(sistemas.stream()
-                    .map(SistemaResponseDto::fromSistema)
+                    .map(SistemaResponseIdDto::fromSistema)
                     .toList());
         }
     }

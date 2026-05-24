@@ -2,7 +2,10 @@ package com.oracle.solarmetrics.gateways.dtos.sistemaDto;
 
 import com.oracle.solarmetrics.domains.Sistema;
 import com.oracle.solarmetrics.domains.StatusSistema;
+import com.oracle.solarmetrics.gateways.dtos.EnderecoDto.EnderecoRequestDto;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.Data;
 
@@ -21,12 +24,23 @@ public class SistemaRequestPatchDto {
 
     private StatusSistema status;
 
-    public Sistema toSistema(){
+    @Valid
+    private EnderecoRequestDto endereco;
+
+    public Sistema toSistema() {
+
         return Sistema.builder()
                 .nomeInstalacao(nomeInstalacao)
                 .dataInstalacao(dataInstalacao)
                 .potenciaTotal(potenciaTotal)
                 .status(status)
+
+                .endereco(
+                        endereco != null
+                                ? endereco.toEndereco()
+                                : null
+                )
+
                 .build();
     }
 

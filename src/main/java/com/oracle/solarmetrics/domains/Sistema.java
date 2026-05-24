@@ -41,4 +41,7 @@ public class Sistema {
             cascade = CascadeType.ALL
     )
     private List<Sensor> sensor;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Endereco endereco;
 }

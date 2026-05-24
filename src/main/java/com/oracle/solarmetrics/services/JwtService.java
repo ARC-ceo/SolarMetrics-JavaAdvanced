@@ -48,14 +48,15 @@ public class JwtService {
 
             List<String> sistemaIds = sistemaRepository.findIdsByClienteId(usuarioInfo.getId());
             List<String> topics = sistemaIds.stream()
-                    .map(id -> "devices/" + id + "/realtime")
+                    .map(id -> "devices/" + id + "/#")
                     .toList();
 
             Map<String, Object> acl = new HashMap<>();
             acl.put("sub", topics);
 
-            claims.put("nome", usuarioInfo.getNome());
             claims.put("id", usuarioInfo.getId());
+            claims.put("nome", usuarioInfo.getNome());
+            claims.put("client_type", usuarioInfo.getTipoUser());
             claims.put("acl", acl);
         }
 
